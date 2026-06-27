@@ -215,8 +215,8 @@
             color: #fff; padding: .8cqh 2cqw; border-radius: 3cqh; font-size: 2cqh; font-weight: 800;
             margin-bottom: 1.5cqh; box-shadow: 0 .4cqh 1cqh rgba(0,0,0,0.3); }
         .phase-badge.gold { background: linear-gradient(135deg, #f368a0, #c2407a); color: #1a1a2e; }
-        .cp-block { background: rgba(255,133,179,0.08); border-left: .6cqw solid #ff85b3;
-            padding: 1.5cqh 2cqw; border-radius: 0 1cqh 1cqh 0; margin-bottom: 1.5cqh; }
+        .cp-block { background: rgba(255,255,255,0.12);
+            padding: 1.5cqh 2cqw; border-radius: 1cqh; margin-bottom: 1.5cqh; }
         .cp-block .cp-label { font-size: 1.7cqh; color: #ff85b3; font-weight: 800; text-transform: uppercase;
             letter-spacing: .1cqw; margin-bottom: .8cqh; }
         .cp-block p { font-size: 1.9cqh; color: #fff; margin: 0; line-height: 1.55; font-weight: 500; }
@@ -226,15 +226,53 @@
         .tp-text { font-size: 1.9cqh; color: #fff; line-height: 1.5; font-weight: 500; }
         .tp-text em { color: #ff85b3; font-style: normal; font-weight: 700; }
 
-        .learn-tab-bar { display: flex; gap: .8cqw; justify-content: center; margin-bottom: 1.5cqh; flex-wrap: wrap; flex-shrink: 0; }
-        .learn-tab-btn { background: rgba(210,218,226,0.1); border: .2cqh solid rgba(255,255,255,0.2); padding: .8cqh 1.5cqw;
-            border-radius: 1cqh; font-weight: 700; cursor: pointer; transition: 0.2s; font-size: 1.7cqh; color: rgba(255,255,255,0.8); }
+        .learn-tab-bar { display: flex; gap: .7cqw; justify-content: center; margin-bottom: 1.2cqh; flex-wrap: wrap; flex-shrink: 0; }
+        .learn-tab-btn { background: rgba(210,218,226,0.1); border: .2cqh solid rgba(255,255,255,0.2); padding: .7cqh 1.3cqw;
+            border-radius: 1cqh; font-weight: 700; cursor: pointer; transition: 0.2s; font-size: 1.6cqh; color: rgba(255,255,255,0.8); }
         .learn-tab-btn:hover { background: rgba(255,255,255,0.15); }
         .learn-tab-btn.active { background: #6c2bd9; color: #fff; border-color: #6c2bd9; box-shadow: 0 .4cqh 0 #4c1d95; }
-        .learn-tab-content { display: none; overflow-y: auto; flex-grow: 1; padding-right: .5cqw; }
-        .learn-tab-content.active { display: block; }
-        .learn-tab-content::-webkit-scrollbar { width: .8cqw; }
-        .learn-tab-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 1cqh; }
+        .learn-tab-content { display: none; }
+        .learn-tab-content.active { display: block; animation: fadeIn .35s ease; }
+
+        /* ===== MATERI: panel besar, navigasi tombol Sebelumnya/Selanjutnya ===== */
+        #page-learn, #page-guide, #page-objectives, #page-exercise-menu, #page-references { padding: 0 !important; }
+        #page-learn .learn-panel, #page-guide .learn-panel, #page-objectives .learn-panel, #page-exercise-menu .learn-panel, #page-references .learn-panel {
+            position: absolute !important; top: 9.5cqh; left: 7cqw; right: 0cqw; bottom: .1cqh;
+            display: flex; flex-direction: column; z-index: 6 !important;
+            background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 2cqh; box-shadow: 0 1cqh 3cqh rgba(0,0,0,0.38);
+            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+            padding: 1.8cqh 2.6cqw 1.5cqh; z-index: 5;
+        }
+        .learn-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 2cqw; flex-shrink: 0; margin-bottom: 1cqh; }
+        .learn-panel-title { color: #fff; font-size: 3cqh; font-weight: 800; margin: 0; text-shadow: 0 .3cqh .8cqh rgba(0,0,0,0.7); }
+        .learn-exit-btn {
+            background: rgba(255,77,109,0.85); color: #fff; border: none; border-radius: 1.2cqh;
+            padding: .9cqh 1.8cqw; font-size: 1.9cqh; font-weight: 800; cursor: pointer; transition: .18s;
+            flex-shrink: 0; box-shadow: 0 .4cqh 0 rgba(180,30,60,0.85);
+        }
+        .learn-exit-btn:hover { background: #ff4d6d; transform: translateY(-.3cqh); }
+        .learn-exit-btn:active { transform: translateY(0); }
+        .learn-panel-body { flex-grow: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; padding-right: .8cqw; }
+        .learn-panel-body::-webkit-scrollbar { width: .8cqw; }
+        .learn-panel-body::-webkit-scrollbar-track { background: rgba(0,0,0,0.18); border-radius: 1cqh; }
+        .learn-panel-body::-webkit-scrollbar-thumb { background: rgba(108,43,217,0.55); border-radius: 1cqh; }
+        .learn-panel-body h3 { color: #ff85b3; border-bottom: .3cqh solid rgba(255,133,179,0.5); display: inline-block; padding-bottom: .7cqh; margin: 0 0 1.2cqh; font-size: 2.7cqh; }
+        .learn-panel-foot {
+            display: flex; align-items: center; justify-content: space-between; gap: 2cqw;
+            flex-shrink: 0; margin-top: 1cqh; padding-top: 1.2cqh; border-top: .15cqh solid rgba(255,255,255,0.18);
+        }
+        .learn-step-btn {
+            background: rgba(108,43,217,0.55); color: #fff; border: .2cqh solid rgba(255,255,255,0.3);
+            border-radius: 1.4cqh; padding: 1cqh 2.4cqw; font-size: 2cqh; font-weight: 800; cursor: pointer;
+            transition: .18s; min-width: 15cqw;
+        }
+        .learn-step-btn.primary { background: linear-gradient(135deg, #7c3aed, #a855f7); border-color: rgba(255,255,255,0.4); }
+        .learn-step-btn:hover:not(:disabled) { transform: translateY(-.3cqh); filter: brightness(1.12); }
+        .learn-step-btn:active:not(:disabled) { transform: translateY(0); }
+        .learn-step-btn:disabled { opacity: .3; cursor: not-allowed; }
+        .learn-progress { color: #fff; font-size: 2cqh; font-weight: 700; text-align: center; }
+        .learn-progress span { color: #ff85b3; font-weight: 800; }
         
         .concept-block { background: rgba(255,255,255,0.12); border-radius: 1cqh; padding: 1.5cqh 2cqw; margin-bottom: 1.2cqh; border: .15cqh solid rgba(255,255,255,0.25); }
         .concept-block h5 { font-size: 2cqh; color: #ff85b3; margin-bottom: .6cqh; }
@@ -247,20 +285,20 @@
         .tip-card .tip-num { font-size: 2.5cqh; font-weight: 800; color: #ff85b3; flex-shrink: 0; min-width: 3cqw; }
         .tip-card p { font-size: 1.8cqh; color: #fff; margin: 0; line-height: 1.5; }
 
-        .quiz-grid { display: flex; flex-direction: column; gap: 2cqh; width: 100%; flex-grow: 1; justify-content: center; }
+        .quiz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2cqh 2cqw; width: 100%; flex-grow: 1; align-content: center; }
         .quiz-card {
-            display: flex; align-items: center; gap: 2cqw;
+            display: flex; flex-direction: column; align-items: center; text-align: center; gap: .8cqh;
             background: rgba(255,255,255,0.15); border-radius: 1.5cqh;
-            padding: 1.5cqh 2cqw; cursor: pointer; transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+            padding: 1.8cqh 1.4cqw; cursor: pointer; transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
             border: .2cqh solid rgba(255,255,255,0.3); box-shadow: 0 .5cqh 1.5cqh rgba(0,0,0,0.15);
         }
-        .quiz-card:hover { transform: translateY(-.5cqh) scale(1.02); background: rgba(255,255,255,0.25); }
+        .quiz-card:hover { transform: translateY(-.5cqh) scale(1.03); background: rgba(255,255,255,0.25); }
         .quiz-card:active { transform: translateY(.2cqh) scale(0.98); }
-        .quiz-card-icon { font-size: 7cqh; flex-shrink: 0; }
-        .quiz-card-info { flex: 1; text-align: left; }
-        .quiz-card-title { font-size: 2.3cqh; font-weight: 800; color: #fff; }
-        .quiz-card-desc { font-size: 1.7cqh; color: rgba(255,255,255,0.65); margin-top: .4cqh; }
-        .quiz-card-badge { font-size: 1.8cqh; font-weight: 800; padding: .8cqh 1.5cqw; border-radius: 3cqh; flex-shrink: 0; }
+        .quiz-card-icon { font-size: 5.5cqh; flex-shrink: 0; line-height: 1; }
+        .quiz-card-info { flex: 1; text-align: center; display: flex; flex-direction: column; gap: .3cqh; }
+        .quiz-card-title { font-size: 2cqh; font-weight: 800; color: #fff; line-height: 1.15; }
+        .quiz-card-desc { font-size: 1.55cqh; color: rgba(255,255,255,0.7); margin-top: .2cqh; line-height: 1.35; }
+        .quiz-card-badge { font-size: 1.7cqh; font-weight: 800; padding: .6cqh 1.4cqw; border-radius: 3cqh; flex-shrink: 0; margin-top: auto; }
         .qb-green { background: rgba(5,196,107,0.25); color: #0be881; border: .15cqh solid #05c46b; }
         .qb-blue  { background: rgba(87,95,207,0.25); color: #a29bfe; border: .15cqh solid #575fcf; }
         .qb-red   { background: rgba(108,43,217,0.25); color: #ff8fb0; border: .15cqh solid #6c2bd9; }
@@ -858,8 +896,8 @@
 <div class="app-container" id="main-container">
 
     <!-- ===== ANIMASI SIRKUIT GLOBAL (dibawa ke semua scene) ===== -->
-    <canvas id="cover-lightning-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99;"></canvas>
-    <div id="cover-flash" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:98;background:rgba(180,220,255,0);transition:background 0.04s ease;"></div>
+    <canvas id="cover-lightning-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+    <div id="cover-flash" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;background:rgba(180,220,255,0);transition:background 0.04s ease;"></div>
 
     <!-- ================== SPLASH SCREEN + LOADING SCENE (boot) ================== -->
     <div id="boot-overlay">
@@ -968,12 +1006,12 @@
                 <div class="avatar-btn" id="btn-boy" onmouseenter="playHoverSound()" onclick="selectAvatar('boy')">
                     <img src="assets/boy.png" alt="Laki-laki" class="avatar-selection-img"
                          onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%233498db\'/><text x=\'50\' y=\'65\' font-size=\'50\' text-anchor=\'middle\' fill=\'white\'>👦</text></svg>'">
-                    <p style="font-size: 2.5cqh; margin-top: 1.5cqh;">Boy</p>
+                    <p style="font-size: 2.5cqh; margin-top: 1.5cqh;">Laki-Laki</p>
                 </div>
                 <div class="avatar-btn" id="btn-girl" onmouseenter="playHoverSound()" onclick="selectAvatar('girl')">
                     <img src="assets/girl.png" alt="Perempuan" class="avatar-selection-img"
                          onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%23e74c3c\'/><text x=\'50\' y=\'65\' font-size=\'50\' text-anchor=\'middle\' fill=\'white\'>👧</text></svg>'">
-                    <p style="font-size: 2.5cqh; margin-top: 1.5cqh;">Girl</p>
+                    <p style="font-size: 2.5cqh; margin-top: 1.5cqh;">Perempuan</p>
                 </div>
             </div>
             <img src="assets/btn-masuk.png" class="img-nav-btn" alt="Masuk" style="height:10cqh;"
@@ -1041,63 +1079,89 @@
     </section>
 
     <!-- ================== PAGE GUIDE ================== -->
-    <section id="page-guide" class="page page-has-char">
-        <h2 class="page-title">Panduan Penggunaan</h2>
-        <div class="content-box">
-            <h3>Langkah-Langkah Menggunakan MPI Ini</h3>
-            <p>Ikuti langkah-langkah berikut secara <b>berurutan</b> agar proses belajarmu berjalan optimal.</p>
-            <div style="display:flex; flex-direction:column; gap:1.2cqh; margin-top:.5cqh;">
-                <div style="display:flex; gap:1.5cqw; align-items:flex-start; background:rgba(108,92,231,0.15); border-left:.6cqw solid #a29bfe; border-radius:0 1cqh 1cqh 0; padding:1.2cqh 1.5cqw;">
-                    <div style="min-width:4cqh; height:4cqh; border-radius:50%; background:linear-gradient(135deg,#6c5ce7,#a29bfe); display:flex; align-items:center; justify-content:center; font-size:2.2cqh; font-weight:800; color:#fff; flex-shrink:0;">1</div>
-                    <div><p style="color:#a29bfe; font-weight:800; font-size:2cqh; margin-bottom:.4cqh;">🎯 Baca Tujuan Pembelajaran</p><p style="font-size:1.85cqh; margin:0; line-height:1.55;">Buka menu <b>Tujuan Belajar</b>. Pahami seluruh tujuan pembelajaran sebelum memulai agar kamu tahu apa yang harus dikuasai.</p></div>
-                </div>
-                <div style="display:flex; gap:1.5cqw; align-items:flex-start; background:rgba(108,43,217,0.12); border-left:.6cqw solid #6c2bd9; border-radius:0 1cqh 1cqh 0; padding:1.2cqh 1.5cqw;">
-                    <div style="min-width:4cqh; height:4cqh; border-radius:50%; background:linear-gradient(135deg,#6c2bd9,#8b5cf6); display:flex; align-items:center; justify-content:center; font-size:2.2cqh; font-weight:800; color:#fff; flex-shrink:0;">2</div>
-                    <div><p style="color:#ff8fb0; font-weight:800; font-size:2cqh; margin-bottom:.4cqh;">📚 Pelajari Seluruh Materi</p>
-                        <p style="font-size:1.85cqh; margin:0 0 .6cqh 0; line-height:1.55;">Buka menu <b>Materi</b>. Pelajari keenam tab secara urut:</p>
-                        <div style="display:flex; flex-direction:column; gap:.4cqh;">
-                            <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">🖥️ <b>Tab 1 — Komponen Komputer:</b> Hardware, software, dan brainware penyusun sistem</div>
-                            <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">🧩 <b>Tab 2 — Spesifikasi Hardware:</b> CPU, RAM, penyimpanan, GPU, motherboard, PSU</div>
-                            <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">👤 <b>Tab 3 — Analisis Kebutuhan:</b> Mengenali profil & kebutuhan pengguna komputer</div>
-                            <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">📐 <b>Tab 4 — Tahapan Perancangan:</b> Langkah merancang sistem dari analisis hingga evaluasi</div>
-                            <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">💻 <b>Tab 5 — Studi Kasus Rancangan:</b> Contoh rancangan PC untuk berbagai pengguna</div>
-                            <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">🔌 <b>Tab 6 — Kompatibilitas & Optimasi:</b> Kecocokan komponen, bottleneck, dan efisiensi biaya</div>
+    <section id="page-guide" class="page">
+        <div class="learn-panel">
+            <div class="learn-panel-head">
+                <h2 class="learn-panel-title">📘 Panduan Penggunaan</h2>
+            </div>
+            <div class="learn-panel-body" style="display:flex; flex-direction:column;">
+            <div class="obj-slider-wrapper">
 
+                <!-- SLIDE 1: Persiapan & Materi -->
+                <div class="obj-slide active">
+                    <h3>Langkah-Langkah Menggunakan MPI Ini</h3>
+                    <p style="font-size:1.85cqh; color:rgba(255,255,255,0.85); margin-bottom:1.2cqh; line-height:1.55;">Ikuti langkah berikut secara <b>berurutan</b> agar proses belajarmu berjalan optimal. <b style="color:#ff85b3;">(Bagian 1 dari 2)</b></p>
+                    <div style="display:flex; flex-direction:column; gap:1.2cqh;">
+                        <div style="display:flex; gap:1.5cqw; align-items:flex-start; background:rgba(108,92,231,0.15); border-left:.6cqw solid #a29bfe; border-radius:0 1cqh 1cqh 0; padding:1.2cqh 1.5cqw;">
+                            <div style="min-width:4cqh; height:4cqh; border-radius:50%; background:linear-gradient(135deg,#6c5ce7,#a29bfe); display:flex; align-items:center; justify-content:center; font-size:2.2cqh; font-weight:800; color:#fff; flex-shrink:0;">1</div>
+                            <div><p style="color:#a29bfe; font-weight:800; font-size:2cqh; margin:0 0 .4cqh;">🎯 Baca Tujuan Pembelajaran</p><p style="color:white; font-size:1.85cqh; margin:0; line-height:1.55;">Buka menu <b>Tujuan Belajar</b>. Pahami seluruh tujuan pembelajaran sebelum memulai agar kamu tahu apa yang harus dikuasai.</p></div>
+                        </div>
+                        <div style="display:flex; gap:1.5cqw; align-items:flex-start; background:rgba(108,43,217,0.12); border-left:.6cqw solid #6c2bd9; border-radius:0 1cqh 1cqh 0; padding:1.2cqh 1.5cqw;">
+                            <div style="min-width:4cqh; height:4cqh; border-radius:50%; background:linear-gradient(135deg,#6c2bd9,#8b5cf6); display:flex; align-items:center; justify-content:center; font-size:2.2cqh; font-weight:800; color:#fff; flex-shrink:0;">2</div>
+                            <div style="flex:1;"><p style="color:#ff8fb0; font-weight:800; font-size:2cqh; margin:0 0 .4cqh;">📚 Pelajari Seluruh Materi</p>
+                                <p style="color:white; font-size:1.85cqh; margin:0 0 .6cqh 0; line-height:1.55;">Buka menu <b>Materi</b>. Pelajari keenam tab secara urut:</p>
+                                <div style="display:flex; flex-direction:column; gap:.4cqh;">
+                                    <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">🖥️ <b>Tab 1 — Komponen Komputer:</b> Hardware, software, dan brainware penyusun sistem</div>
+                                    <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">🧩 <b>Tab 2 — Spesifikasi Hardware:</b> CPU, RAM, penyimpanan, GPU, motherboard, PSU</div>
+                                    <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">👤 <b>Tab 3 — Analisis Kebutuhan:</b> Mengenali profil & kebutuhan pengguna komputer</div>
+                                    <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">📐 <b>Tab 4 — Tahapan Perancangan:</b> Langkah merancang sistem dari analisis hingga evaluasi</div>
+                                    <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">💻 <b>Tab 5 — Studi Kasus Rancangan:</b> Contoh rancangan PC untuk berbagai pengguna</div>
+                                    <div style="background:rgba(255,255,255,0.07); border-radius:.7cqh; padding:.6cqh 1cqw; font-size:1.72cqh; color:rgba(255,255,255,0.9);">🔌 <b>Tab 6 — Kompatibilitas & Optimasi:</b> Kecocokan komponen, bottleneck, dan efisiensi biaya</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div style="display:flex; gap:1.5cqw; align-items:flex-start; background:rgba(11,232,129,0.1); border-left:.6cqw solid #05c46b; border-radius:0 1cqh 1cqh 0; padding:1.2cqh 1.5cqw;">
-                    <div style="min-width:4cqh; height:4cqh; border-radius:50%; background:linear-gradient(135deg,#0be881,#05c46b); display:flex; align-items:center; justify-content:center; font-size:2.2cqh; font-weight:800; color:#1a1a2e; flex-shrink:0;">3</div>
-                    <div><p style="color:#0be881; font-weight:800; font-size:2cqh; margin-bottom:.4cqh;">✏️ Kerjakan Asesmen (5 Level)</p>
-                        <div style="display:flex; flex-direction:column; gap:.5cqh; margin-top:.4cqh;">
-                            <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🌱 <b>Level 1 — Menjodohkan Istilah:</b> Cocokkan istilah komponen komputer dengan fungsinya <span style="color:#ff85b3;">(maks. 6 poin)</span></div>
-                            <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">📋 <b>Level 2 — Isi dengan Drop-Down:</b> Lengkapi kalimat rumpang dengan kata yang tepat <span style="color:#ff85b3;">(maks. 10 poin)</span></div>
-                            <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🃏 <b>Level 3 — Klasifikasi Konsep:</b> Kelompokkan kartu ke kategori yang tepat <span style="color:#ff85b3;">(maks. 16 poin)</span></div>
-                            <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🏆 <b>Level 4 — Pilihan Ganda (5 Opsi):</b> Uji pemahaman tentang hardware dan kebutuhan pengguna <span style="color:#ff85b3;">(maks. 20 poin)</span></div>
-                            <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🔢 <b>Level 5 — Urutkan Langkah:</b> Susun langkah-langkah merancang sistem komputer secara berurutan <span style="color:#ff85b3;">(maks. 48 poin)</span></div>
-                            <div style="background:rgba(255,133,179,0.1); border:.15cqh solid rgba(255,133,179,0.4); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🏆 <b style="color:#ff85b3;">Total Poin Maksimal: 100 Poin</b></div>
+
+                <!-- SLIDE 2: Asesmen, Sertifikat & Tips -->
+                <div class="obj-slide">
+                    <h3>Asesmen, Sertifikat &amp; Catatan</h3>
+                    <p style="font-size:1.85cqh; color:rgba(255,255,255,0.85); margin-bottom:1.2cqh; line-height:1.55;">Lanjutkan dengan mengerjakan latihan dan mengambil sertifikat. <b style="color:#ff85b3;">(Bagian 2 dari 2)</b></p>
+                    <div style="display:flex; flex-direction:column; gap:1.2cqh;">
+                        <div style="display:flex; gap:1.5cqw; align-items:flex-start; background:rgba(11,232,129,0.1); border-left:.6cqw solid #05c46b; border-radius:0 1cqh 1cqh 0; padding:1.2cqh 1.5cqw;">
+                            <div style="min-width:4cqh; height:4cqh; border-radius:50%; background:linear-gradient(135deg,#0be881,#05c46b); display:flex; align-items:center; justify-content:center; font-size:2.2cqh; font-weight:800; color:#1a1a2e; flex-shrink:0;">3</div>
+                            <div style="flex:1;"><p style="color:#0be881; font-weight:800; font-size:2cqh; margin:0 0 .4cqh;">✏️ Kerjakan Asesmen (5 Level)</p>
+                                <div style="display:flex; flex-direction:column; gap:.5cqh;">
+                                    <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🌱 <b>Level 1 — Menjodohkan Istilah:</b> Cocokkan istilah komponen komputer dengan fungsinya <span style="color:#ff85b3;">(maks. 6 poin)</span></div>
+                                    <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">📋 <b>Level 2 — Isi dengan Drop-Down:</b> Lengkapi kalimat rumpang dengan kata yang tepat <span style="color:#ff85b3;">(maks. 10 poin)</span></div>
+                                    <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🃏 <b>Level 3 — Klasifikasi Konsep:</b> Kelompokkan kartu ke kategori yang tepat <span style="color:#ff85b3;">(maks. 16 poin)</span></div>
+                                    <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🏆 <b>Level 4 — Pilihan Ganda (5 Opsi):</b> Uji pemahaman tentang hardware dan kebutuhan pengguna <span style="color:#ff85b3;">(maks. 20 poin)</span></div>
+                                    <div style="background:rgba(255,255,255,0.08); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🔢 <b>Level 5 — Urutkan Langkah:</b> Susun langkah-langkah merancang sistem komputer secara berurutan <span style="color:#ff85b3;">(maks. 48 poin)</span></div>
+                                    <div style="background:rgba(255,133,179,0.1); border:.15cqh solid rgba(255,133,179,0.4); border-radius:.8cqh; padding:.7cqh 1.2cqw; font-size:1.75cqh; color:rgba(255,255,255,0.9);">🏆 <b style="color:#ff85b3;">Total Poin Maksimal: 100 Poin</b></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:1.5cqw; align-items:flex-start; background:rgba(253,203,110,0.1); border-left:.6cqw solid #fdcb6e; border-radius:0 1cqh 1cqh 0; padding:1.2cqh 1.5cqw;">
+                            <div style="min-width:4cqh; height:4cqh; border-radius:50%; background:linear-gradient(135deg,#fdcb6e,#e17055); display:flex; align-items:center; justify-content:center; font-size:2.2cqh; font-weight:800; color:#fff; flex-shrink:0;">4</div>
+                            <div><p style="color:#fdcb6e; font-weight:800; font-size:2cqh; margin:0 0 .4cqh;">🏅 Lihat Referensi &amp; Sertifikat</p><p style="color:white; font-size:1.85cqh; margin:0; line-height:1.55;">Buka menu <b>Referensi</b> untuk sumber belajar, lalu ambil <b>Sertifikat</b> dan unduh sebagai JPG untuk dilaporkan kepada gurumu.</p></div>
+                        </div>
+                        <div style="background:rgba(255,133,179,0.12); padding:1.2cqh 2cqw; border-radius:1cqh; text-align:center; border:.2cqh solid rgba(255,133,179,0.4);">
+                            <p style="color:#ff85b3; font-weight:800; font-size:1.9cqh; margin:0;">💡 Klik ikon 🔊 di pojok kiri bawah untuk menyalakan atau mematikan musik latar.</p>
                         </div>
                     </div>
                 </div>
-                <div style="display:flex; gap:1.5cqw; align-items:flex-start; background:rgba(253,203,110,0.1); border-left:.6cqw solid #fdcb6e; border-radius:0 1cqh 1cqh 0; padding:1.2cqh 1.5cqw;">
-                    <div style="min-width:4cqh; height:4cqh; border-radius:50%; background:linear-gradient(135deg,#fdcb6e,#e17055); display:flex; align-items:center; justify-content:center; font-size:2.2cqh; font-weight:800; color:#fff; flex-shrink:0;">4</div>
-                    <div><p style="color:#fdcb6e; font-weight:800; font-size:2cqh; margin-bottom:.4cqh;">🏅 Lihat Referensi &amp; Sertifikat</p><p style="font-size:1.85cqh; margin:0; line-height:1.55;">Buka menu <b>Referensi</b> untuk sumber belajar, lalu ambil <b>Sertifikat</b> dan unduh sebagai JPG untuk dilaporkan kepada gurumu.</p></div>
+
+            </div>
+            </div><!-- /learn-panel-body -->
+            <div class="obj-nav-row" style="border-top:.15cqh solid rgba(255,255,255,0.18); padding-top:1.2cqh; flex-shrink:0;">
+                <button class="obj-arrow" id="obj-prev" onclick="moveObjSlide(-1)" disabled>&#8592; Sebelumnya</button>
+                <div class="obj-dots">
+                    <div class="obj-dot active" onclick="goObjSlide(0)"></div>
+                    <div class="obj-dot" onclick="goObjSlide(1)"></div>
                 </div>
-            </div>
-            <div style="background:rgba(255,133,179,0.12); padding:1.2cqh 2cqw; border-radius:1cqh; text-align:center; margin-top:1.2cqh; border:.2cqh solid rgba(255,133,179,0.4);">
-                <p style="color:#ff85b3; font-weight:800; font-size:1.9cqh; margin:0;">💡 Klik ikon 🔊 di pojok kiri bawah untuk menyalakan atau mematikan musik latar.</p>
-            </div>
-        </div>
-        <div class="nav-bar">
-            <img src="assets/nav-panduan.png" class="img-nav-btn" title="Menu Utama" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Menu Utama">
-            <button class="nav-btn-fallback" style="display:none;" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')">⬅ Menu Utama</button>
-        </div>
+                <span class="obj-slide-label" id="obj-counter">1 / 2</span>
+                <button class="obj-arrow" id="obj-next" onclick="moveObjSlide(1)">Berikutnya &#8594;</button>
+            </div><!-- /obj-nav-row (foot) -->
+        </div><!-- /learn-panel -->
     </section>
 
     <!-- ================== PAGE OBJECTIVES ================== -->
-    <section id="page-objectives" class="page page-has-char">
-        <h2 class="page-title">Tujuan Pembelajaran</h2>
-        <div class="content-box" style="display:flex; flex-direction:column;">
+    <section id="page-objectives" class="page">
+        <div class="learn-panel">
+            <div class="learn-panel-head">
+                <h2 class="learn-panel-title">🎯 Tujuan Pembelajaran</h2>
+            </div>
+            <div class="learn-panel-body" style="display:flex; flex-direction:column;">
             <div class="obj-slider-wrapper">
                 <!-- SLIDE 1: Identitas -->
                 <div class="obj-slide active" id="obj-slide-0">
@@ -1169,27 +1233,26 @@
                     </div>
                 </div>
             </div>
-            <div class="obj-nav-row">
+            </div>
+            <!-- /learn-panel-body -->
+            <div class="obj-nav-row" style="border-top:.15cqh solid rgba(255,255,255,0.18); padding-top:1.2cqh; flex-shrink:0;">
                 <button class="obj-arrow" id="obj-prev" onclick="moveObjSlide(-1)" disabled>&#8592; Sebelumnya</button>
                 <div class="obj-dots">
                     <div class="obj-dot active" onclick="goObjSlide(0)"></div>
                     <div class="obj-dot" onclick="goObjSlide(1)"></div>
                     <div class="obj-dot" onclick="goObjSlide(2)"></div>
                 </div>
-                <span class="obj-slide-label" id="obj-counter">1 / 3</span>
                 <button class="obj-arrow" id="obj-next" onclick="moveObjSlide(1)">Berikutnya &#8594;</button>
-            </div>
-        </div>
-        <div class="nav-bar">
-            <img src="assets/nav-tujuan.png" class="img-nav-btn" title="Menu Utama" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Menu Utama">
-            <button class="nav-btn-fallback" style="display:none;" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')">⬅ Menu Utama</button>
-        </div>
+            </div><!-- /obj-nav-row (foot) -->
+        </div><!-- /learn-panel -->
     </section>
 
     <!-- ================== PAGE LEARN ================== -->
-    <section id="page-learn" class="page page-has-char">
-        <h2 class="page-title">Desain Sistem Komputer</h2>
-        <div class="content-box" style="display:flex; flex-direction:column;">
+    <section id="page-learn" class="page">
+        <div class="learn-panel">
+            <div class="learn-panel-head">
+                <h2 class="learn-panel-title">📚 Materi — Desain Sistem Komputer</h2>
+            </div>
             <div class="learn-tab-bar">
                 <button class="learn-tab-btn active" id="ltab-prinsip"   onclick="switchLearnTab('prinsip')">🖥️ Komponen Komputer</button>
                 <button class="learn-tab-btn"         id="ltab-metode"   onclick="switchLearnTab('metode')">🧩 Spesifikasi Hardware</button>
@@ -1198,6 +1261,7 @@
                 <button class="learn-tab-btn"         id="ltab-kasus"    onclick="switchLearnTab('kasus')">💻 Studi Kasus</button>
                 <button class="learn-tab-btn"         id="ltab-kebangsaan" onclick="switchLearnTab('kebangsaan')">🔌 Kompatibilitas & Optimasi</button>
             </div>
+            <div class="learn-panel-body" id="learn-panel-body">
 
             <!-- TAB 1: KOMPONEN KOMPUTER -->
             <div class="learn-tab-content active" id="lcontent-prinsip">
@@ -1367,17 +1431,22 @@
                 </div>
             </div>
 
-        </div>
-        <div class="nav-bar">
-            <img src="assets/nav-materi.png" class="img-nav-btn" title="Menu Utama" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Menu Utama">
-            <button class="nav-btn-fallback" style="display:none;" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')">⬅ Menu Utama</button>
-        </div>
+            </div><!-- /learn-panel-body -->
+            <div class="learn-panel-foot">
+                <button class="learn-step-btn" id="learn-prev" onmouseenter="playHoverSound()" onclick="learnNav(-1)">◀ Sebelumnya</button>
+                <div class="learn-progress"><span id="learn-progress-num">1</span> / 6 &nbsp;·&nbsp; <span id="learn-progress-name">Komponen Komputer</span></div>
+                <button class="learn-step-btn primary" id="learn-next" onmouseenter="playHoverSound()" onclick="learnNav(1)">Selanjutnya ▶</button>
+            </div>
+        </div><!-- /learn-panel -->
     </section>
 
     <!-- ================== PAGE EXERCISE MENU ================== -->
-    <section id="page-exercise-menu" class="page page-has-char">
-        <h2 class="page-title">Pilih Level Latihan</h2>
-        <div class="content-box" style="display:flex; flex-direction:column; justify-content:flex-start; overflow-y:auto;">
+    <section id="page-exercise-menu" class="page">
+        <div class="learn-panel">
+            <div class="learn-panel-head">
+                <h2 class="learn-panel-title">✏️ Pilih Level Latihan</h2>
+            </div>
+            <div class="learn-panel-body" style="display:flex; flex-direction:column;">
             <p class="quiz-points-note">🏆 Kumpulkan maksimal <b style="color:#ff85b3;">100 Poin!</b> &nbsp;·&nbsp; Selesaikan semua level untuk mendapat sertifikat.</p>
             <div class="quiz-grid">
                 <div class="quiz-card" onmouseenter="playHoverSound()" onclick="playClickSound(); startLevel1()">
@@ -1421,11 +1490,11 @@
                     <div class="quiz-card-badge qb-red" id="s-lvl2">48 Poin</div>
                 </div>
             </div>
-        </div>
-        <div class="nav-bar">
-            <img src="assets/nav-latihan.png" class="img-nav-btn" title="Menu Utama" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Menu Utama">
-            <button class="nav-btn-fallback" style="display:none;" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')">⬅ Menu Utama</button>
-        </div>
+            </div><!-- /learn-panel-body -->
+            <div class="learn-panel-foot" style="justify-content:flex-end;">
+                <button class="learn-step-btn primary" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')">⬅ Menu Utama</button>
+            </div>
+        </div><!-- /learn-panel -->
     </section>
 
     <!-- ================== PAGE LEVEL 1 ================== -->
@@ -1628,74 +1697,94 @@
     </section>
 
     <!-- ================== PAGE REFERENCES ================== -->
-    <section id="page-references" class="page page-has-char">
-        <h2 class="page-title">Sumber Referensi</h2>
-        <div class="content-box">
-            <h3>Buku & Kurikulum</h3>
-            <div class="concept-block">
-                <div class="concept-row">
-                    <span class="concept-icon">📘</span>
-                    <div>
-                        <h5>Buku Teks Informatika SMA Fase F</h5>
-                        <p>Kemendikbudristek RI. <em>Informatika untuk SMA/MA Kelas XI–XII.</em> Jakarta: Pusat Perbukuan. Bab Sistem Komputer — Perangkat keras, perangkat lunak, dan perancangan sistem sesuai kebutuhan pengguna.</p>
+    <section id="page-references" class="page">
+        <div class="learn-panel">
+            <div class="learn-panel-head">
+                <h2 class="learn-panel-title">📚 Sumber Referensi</h2>
+            </div>
+            <div class="learn-panel-body" style="display:flex; flex-direction:column;">
+            <div class="obj-slider-wrapper">
+
+                <!-- SLIDE 1: Buku & Kurikulum -->
+                <div class="obj-slide active">
+                    <h3>Buku &amp; Kurikulum</h3>
+                    <div class="concept-block">
+                        <div class="concept-row">
+                            <span class="concept-icon">📘</span>
+                            <div>
+                                <h5>Buku Teks Informatika SMA Fase F</h5>
+                                <p>Kemendikbudristek RI. <em>Informatika untuk SMA/MA Kelas XI–XII.</em> Jakarta: Pusat Perbukuan. Bab Sistem Komputer — Perangkat keras, perangkat lunak, dan perancangan sistem sesuai kebutuhan pengguna.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="concept-block">
+                        <div class="concept-row">
+                            <span class="concept-icon">🎯</span>
+                            <div>
+                                <h5>Capaian Pembelajaran (CP) Informatika Fase F</h5>
+                                <p>Keputusan Kepala BSKAP Kemendikdasmen tentang Capaian Pembelajaran jenjang Pendidikan Menengah, Mata Pelajaran Informatika, Elemen Sistem Komputer (SK).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="concept-block">
+                        <div class="concept-row">
+                            <span class="concept-icon">📗</span>
+                            <div>
+                                <h5>Referensi Pendukung</h5>
+                                <p>Mueller, S. <em>Upgrading and Repairing PCs.</em> Pearson.<br>
+                                Stallings, W. <em>Computer Organization and Architecture.</em> Pearson.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="concept-block">
-                <div class="concept-row">
-                    <span class="concept-icon">🎯</span>
-                    <div>
-                        <h5>Capaian Pembelajaran (CP) Informatika Fase F</h5>
-                        <p>Keputusan Kepala BSKAP Kemendikdasmen tentang Capaian Pembelajaran jenjang Pendidikan Menengah, Mata Pelajaran Informatika, Elemen Sistem Komputer (SK).</p>
+
+                <!-- SLIDE 2: Sumber Digital & Pengembang -->
+                <div class="obj-slide">
+                    <h3>Sumber Digital &amp; Pengembang</h3>
+                    <div class="concept-block">
+                        <div class="concept-row">
+                            <span class="concept-icon">🛠️</span>
+                            <div>
+                                <h5>Simulator Perakitan & Cek Kompatibilitas</h5>
+                                <p>• <b>PCPartPicker</b> — pcpartpicker.com (memilih komponen & memeriksa kompatibilitas serta estimasi harga)<br>
+                                • <b>PC Building Simulator</b> — simulasi merakit PC secara virtual</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="concept-block">
+                        <div class="concept-row">
+                            <span class="concept-icon">🌐</span>
+                            <div>
+                                <h5>Situs Spesifikasi Komponen</h5>
+                                <p>• <b>Intel ARK</b> — ark.intel.com (spesifikasi resmi prosesor Intel)<br>
+                                • <b>AMD Product Specifications</b> — amd.com (spesifikasi prosesor & GPU AMD)<br>
+                                • <b>NVIDIA</b> — nvidia.com (spesifikasi kartu grafis GeForce)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="concept-block">
+                        <div class="concept-row">
+                            <span class="concept-icon">👤</span>
+                            <div>
+                                <h5>Pengembang Media</h5>
+                                <p>Auliya Dhava Wima — SMA Plus PGRI Cibinong. Media Pembelajaran Interaktif Informatika: Desain Sistem Komputer, Fase F.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
-            <div class="concept-block">
-                <div class="concept-row">
-                    <span class="concept-icon">📗</span>
-                    <div>
-                        <h5>Referensi Pendukung</h5>
-                        <p>Mueller, S. <em>Upgrading and Repairing PCs.</em> Pearson.<br>
-                        Stallings, W. <em>Computer Organization and Architecture.</em> Pearson.</p>
-                    </div>
+            </div><!-- /learn-panel-body -->
+            <div class="obj-nav-row" style="border-top:.15cqh solid rgba(255,255,255,0.18); padding-top:1.2cqh; flex-shrink:0;">
+                <button class="obj-arrow" id="obj-prev" onclick="moveObjSlide(-1)" disabled>&#8592; Sebelumnya</button>
+                <div class="obj-dots">
+                    <div class="obj-dot active" onclick="goObjSlide(0)"></div>
+                    <div class="obj-dot" onclick="goObjSlide(1)"></div>
                 </div>
-            </div>
-            <h3 style="margin-top:1.5cqh;">Sumber Digital</h3>
-            <div class="concept-block">
-                <div class="concept-row">
-                    <span class="concept-icon">🛠️</span>
-                    <div>
-                        <h5>Simulator Perakitan & Cek Kompatibilitas</h5>
-                        <p>• <b>PCPartPicker</b> — pcpartpicker.com (memilih komponen & memeriksa kompatibilitas serta estimasi harga)<br>
-                           • <b>PC Building Simulator</b> — simulasi merakit PC secara virtual</p>
-                    </div>
-                </div>
-            </div>
-            <div class="concept-block">
-                <div class="concept-row">
-                    <span class="concept-icon">🌐</span>
-                    <div>
-                        <h5>Situs Spesifikasi Komponen</h5>
-                        <p>• <b>Intel ARK</b> — ark.intel.com (spesifikasi resmi prosesor Intel)<br>
-                           • <b>AMD Product Specifications</b> — amd.com (spesifikasi prosesor & GPU AMD)<br>
-                           • <b>NVIDIA</b> — nvidia.com (spesifikasi kartu grafis GeForce)</p>
-                    </div>
-                </div>
-            </div>
-            <div class="concept-block">
-                <div class="concept-row">
-                    <span class="concept-icon">👤</span>
-                    <div>
-                        <h5>Pengembang Media</h5>
-                        <p>Auliya Dhava Wima — SMA Plus PGRI Cibinong. Media Pembelajaran Interaktif Informatika: Desain Sistem Komputer, Fase F.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="nav-bar">
-            <img src="assets/nav-referensi.png" class="img-nav-btn" title="Menu Utama" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Menu Utama">
-            <button class="nav-btn-fallback" style="display:none;" onmouseenter="playHoverSound()" onclick="playClickSound(); goToPage('page-menu')">⬅ Menu Utama</button>
-        </div>
+                <span class="obj-slide-label" id="obj-counter">1 / 2</span>
+                <button class="obj-arrow" id="obj-next" onclick="moveObjSlide(1)">Berikutnya &#8594;</button>
+            </div><!-- /obj-nav-row (foot) -->
+        </div><!-- /learn-panel -->
     </section>
 
 </div><!-- end .app-container -->
@@ -1772,7 +1861,7 @@ const kasusData = {
     function goToPage(pageId) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
-        const charPages = ['page-home','page-objectives','page-learn','page-example','page-sim','page-exercise-menu','page-level-1','page-level-2','page-level-2-select','page-level-3','page-level-4','page-level-5','page-guide','page-certificate','page-references'];
+        const charPages = ['page-home','page-example','page-sim','page-level-1','page-level-2','page-level-2-select','page-level-3','page-level-4','page-level-5','page-certificate'];
         const showChar = charPages.includes(pageId);
         const charContainer = document.getElementById('global-character-container');
         charContainer.style.display = showChar ? 'flex' : 'none';
@@ -1787,6 +1876,8 @@ const kasusData = {
         if (railContainer) railContainer.classList.toggle('home-mode', pageId === 'page-home');
         setActiveRailItem(pageId);
         if (pageId === 'page-exercise-menu') updateMenuStatus();
+        if (pageId === 'page-learn') switchLearnTab('prinsip');
+        if (pageId === 'page-guide' || pageId === 'page-objectives' || pageId === 'page-references') resetSlider(pageId);
     }
 
     // Sorot item rail navigasi yang aktif sesuai halaman saat ini
@@ -1870,30 +1961,90 @@ const kasusData = {
         }
     })();
 
-    // ===== OBJECTIVES SLIDER =====
-    let currentObjSlide = 0;
-    const totalObjSlides = 3;
-    function moveObjSlide(dir) { goObjSlide(currentObjSlide + dir); }
+    // ===== SLIDER GENERIK (per-halaman) =====
+    // Setiap halaman ber-slider (Panduan, Tujuan, Sumber) dikelola sendiri-sendiri
+    // berdasarkan halaman yang sedang aktif, sehingga slide tidak saling tercampur.
+    function activeSliderPage() { return document.querySelector('.page.active'); }
+
+    function moveObjSlide(dir) {
+        const page = activeSliderPage(); if (!page) return;
+        const cur = parseInt(page.dataset.slide || '0', 10);
+        applySlide(page, cur + dir);
+    }
     function goObjSlide(index) {
-        const slides = document.querySelectorAll('.obj-slide');
-        const dots   = document.querySelectorAll('.obj-dot');
-        slides[currentObjSlide].classList.remove('active');
-        slides[currentObjSlide].classList.add('exit-left');
-        setTimeout(() => slides[currentObjSlide].classList.remove('exit-left'), 350);
-        currentObjSlide = Math.max(0, Math.min(index, totalObjSlides - 1));
-        slides[currentObjSlide].classList.add('active');
-        dots.forEach((d, i) => d.classList.toggle('active', i === currentObjSlide));
-        document.getElementById('obj-prev').disabled = currentObjSlide === 0;
-        document.getElementById('obj-next').disabled = currentObjSlide === totalObjSlides - 1;
-        document.getElementById('obj-counter').innerText = (currentObjSlide + 1) + ' / ' + totalObjSlides;
+        const page = activeSliderPage(); if (!page) return;
+        applySlide(page, index);
+    }
+    function applySlide(page, index) {
+        const slides = page.querySelectorAll('.obj-slide');
+        const dots   = page.querySelectorAll('.obj-dot');
+        const total  = slides.length;
+        if (!total) return;
+        let cur = parseInt(page.dataset.slide || '0', 10);
+        if (cur < 0 || cur > total - 1) cur = 0;
+        const next = Math.max(0, Math.min(index, total - 1));
+        if (slides[cur]) {
+            slides[cur].classList.remove('active');
+            slides[cur].classList.add('exit-left');
+            const c = cur;
+            setTimeout(() => { if (slides[c]) slides[c].classList.remove('exit-left'); }, 350);
+        }
+        slides[next].classList.add('active');
+        page.dataset.slide = next;
+        dots.forEach((d, i) => d.classList.toggle('active', i === next));
+        const prevBtn = page.querySelector('#obj-prev');
+        const nextBtn = page.querySelector('#obj-next');
+        const counter = page.querySelector('#obj-counter');
+        if (prevBtn) prevBtn.disabled = (next === 0);
+        if (nextBtn) nextBtn.disabled = (next === total - 1);
+        if (counter) counter.innerText = (next + 1) + ' / ' + total;
+    }
+    // Reset slider ke slide pertama saat halaman dibuka
+    function resetSlider(pageId) {
+        const page = document.getElementById(pageId); if (!page) return;
+        const slides = page.querySelectorAll('.obj-slide');
+        slides.forEach((s, i) => { s.classList.remove('exit-left'); s.classList.toggle('active', i === 0); });
+        page.dataset.slide = 0;
+        const dots = page.querySelectorAll('.obj-dot');
+        dots.forEach((d, i) => d.classList.toggle('active', i === 0));
+        const prevBtn = page.querySelector('#obj-prev');
+        const nextBtn = page.querySelector('#obj-next');
+        const counter = page.querySelector('#obj-counter');
+        if (prevBtn) prevBtn.disabled = true;
+        if (nextBtn) nextBtn.disabled = (slides.length <= 1);
+        if (counter) counter.innerText = '1 / ' + slides.length;
     }
 
     // ===== LEARN TABS =====
+    const LEARN_TABS = ['prinsip','metode','peran','gagasan','kasus','kebangsaan'];
+    const LEARN_NAMES = {
+        prinsip: 'Komponen Komputer', metode: 'Spesifikasi Hardware', peran: 'Analisis Kebutuhan',
+        gagasan: 'Tahapan Perancangan', kasus: 'Studi Kasus', kebangsaan: 'Kompatibilitas & Optimasi'
+    };
+    let learnIndex = 0;
+
     function switchLearnTab(tabId) {
         document.querySelectorAll('.learn-tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.learn-tab-content').forEach(c => c.classList.remove('active'));
         document.getElementById('ltab-' + tabId).classList.add('active');
         document.getElementById('lcontent-' + tabId).classList.add('active');
+        learnIndex = Math.max(0, LEARN_TABS.indexOf(tabId));
+        const body = document.getElementById('learn-panel-body'); if (body) body.scrollTop = 0;
+        const num = document.getElementById('learn-progress-num'); if (num) num.textContent = (learnIndex + 1);
+        const nm  = document.getElementById('learn-progress-name'); if (nm) nm.textContent = LEARN_NAMES[tabId] || '';
+        const prev = document.getElementById('learn-prev'); const next = document.getElementById('learn-next');
+        if (prev) prev.disabled = (learnIndex === 0);
+        if (next) next.disabled = (learnIndex === LEARN_TABS.length - 1);
+    }
+
+    // Navigasi materi dengan tombol Sebelumnya / Selanjutnya
+    function learnNav(dir) {
+        let i = learnIndex + dir;
+        if (i < 0) i = 0;
+        if (i > LEARN_TABS.length - 1) i = LEARN_TABS.length - 1;
+        if (i === learnIndex) return;
+        playClickSound();
+        switchLearnTab(LEARN_TABS[i]);
     }
 
     // ===== STUDI KASUS TAB =====
